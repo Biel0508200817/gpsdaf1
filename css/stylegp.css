@@ -1,0 +1,239 @@
+/* =========================================================
+/* 🏁 Design Inspirado na Fórmula 1: Vermelho e Preto
+/* Paleta: Preto (fundo), Branco (texto), Vermelho F1 (destaque)
+/* ========================================================= */
+
+/* Variáveis de Cores */
+:root {
+    --f1-black: #0A0A0C;
+    --f1-dark-gray: #111111;
+    --f1-red: #E10600; /* Vermelho F1/Ferrari Vibrante */
+    --f1-white: #FFFFFF;
+    --f1-text: #F0F0F0;
+}
+
+/* 1. Base e Tipografia */
+body {
+    background-color: var(--f1-black); 
+    color: var(--f1-text); 
+    font-family: 'Mulish', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: var(--f1-red); 
+    text-decoration: none;
+    transition: all 0.3s ease-in-out; 
+}
+
+a:hover {
+    color: #FF3333; /* Vermelho mais claro ao passar o mouse */
+}
+
+/* Títulos */
+.section-title h5 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--f1-white);
+    text-transform: uppercase;
+    /* Linha de destaque Vermelha */
+    display: inline-block;
+    padding-bottom: 5px;
+    margin-bottom: 30px;
+    border-left: 5px solid var(--f1-red);
+    padding-left: 15px;
+}
+
+/* 2. Header e Navegação */
+.header {
+    background: #000000;
+    padding: 15px 0;
+    border-bottom: 2px solid var(--f1-red);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.header__logo img {
+    max-height: 45px;
+}
+
+.header__menu ul li {
+    margin-right: 40px;
+}
+
+.header__menu ul li a {
+    color: var(--f1-text);
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.header__menu ul li.active a,
+.header__menu ul li:hover > a {
+    color: var(--f1-red);
+    text-shadow: 0 0 8px rgba(225, 6, 0, 0.6); /* Efeito chama */
+}
+
+/* Dropdown */
+.header__menu .dropdown {
+    background: var(--f1-dark-gray);
+    border: 1px solid var(--f1-red);
+    border-top: 3px solid var(--f1-red);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.7);
+}
+
+.header__menu .dropdown li a:hover {
+    background-color: #1A1A1A;
+}
+
+/* 3. Breadcrumb */
+.breadcrumb-option {
+    background-color: #1A1A1A;
+    padding: 10px 0;
+    border-bottom: 1px solid #333333;
+}
+
+.breadcrumb__links a {
+    color: #999999;
+    font-size: 14px;
+}
+
+.breadcrumb__links span {
+    color: var(--f1-red); 
+    font-weight: 700;
+}
+
+.breadcrumb__links a:after {
+    content: ' / '; 
+    margin: 0 10px;
+}
+
+.breadcrumb__links a:last-of-type:after {
+    content: '';
+}
+
+/* 4. Conteúdo Principal e Vídeo */
+.anime-details.spad {
+    padding: 60px 0;
+}
+
+/* Container do Vídeo */
+.anime__video__player {
+    position: relative;
+    padding-bottom: 56.25%; 
+    height: 0;
+    overflow: hidden;
+    margin-bottom: 50px;
+    background: #000;
+    border: 3px solid var(--f1-red);
+    border-radius: 6px;
+    box-shadow: 0 0 30px rgba(225, 6, 0, 0.4); /* Sombra vermelha forte */
+}
+
+.anime__video__player iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* 5. Lista de GPs (O Grid de Corridas) */
+.anime__details__episodes {
+    margin-top: 20px;
+    padding: 30px 20px;
+    background: var(--f1-dark-gray);
+    border-radius: 8px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
+}
+
+.episodes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); 
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.episodes-grid a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 15px 10px;
+    background-color: #222222; 
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--f1-text);
+    text-align: center;
+    border: 1px solid #333; 
+    transition: all 0.2s ease-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.episodes-grid a span.gp-number {
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    color: var(--f1-red);
+    margin-bottom: 5px;
+}
+
+.episodes-grid a:hover {
+    background-color: #3A3A3A;
+    border-color: var(--f1-red);
+    color: var(--f1-white);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.8), 0 0 15px rgba(225, 6, 0, 0.4);
+}
+
+/* Estilo para o GP atual (Bahrain) */
+.episodes-grid a[href*="gpbahrain2022.html"] {
+    background-color: var(--f1-red); 
+    color: var(--f1-black); /* Texto preto no GP ativo */
+    border: 2px solid var(--f1-white);
+    font-weight: 800;
+    transform: none; 
+}
+
+.episodes-grid a[href*="gpbahrain2022.html"] span.gp-number {
+    color: var(--f1-white); /* Número branco no fundo vermelho */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo para GPs futuros (cinza e desabilitado visualmente) */
+/* Mantive os dois primeiros links (Bahrain e Arábia Saudita) como "disponíveis" */
+.episodes-grid a:not([href*="gpbahrain2022.html"]):not([href*="gparabiasaudita2022.html"]) {
+    opacity: 0.4; /* Mais apagado */
+    pointer-events: none; 
+}
+
+/* 6. Footer */
+.footer {
+    background-color: #000000;
+    padding: 30px 0;
+    border-top: 2px solid var(--f1-red);
+    box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.6);
+}
+
+.page-up a {
+    background: var(--f1-red);
+}
+
+.page-up a:hover {
+    background: #FF3333;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .episodes-grid {
+        grid-template-columns: repeat(3, 1fr); 
+    }
+}
+@media (max-width: 480px) {
+    .episodes-grid {
+        grid-template-columns: repeat(2, 1fr); 
+    }
+}
